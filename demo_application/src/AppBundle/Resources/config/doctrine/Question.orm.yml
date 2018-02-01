@@ -1,0 +1,33 @@
+AppBundle\Entity\Question:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\QuestionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '255'
+            nullable: true
+        answer1:
+            type: string
+            length: '255'
+            nullable: true
+        answer2:
+            type: string
+            length: '255'
+            nullable: true
+        answer3:
+            type: string
+            length: '255'
+            nullable: true
+        rightanswer:
+            type: integer
+        answered:
+            type: integer
+            default: 0
+    lifecycleCallbacks: {  }

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if question is not empty %}
+      <div class="row">
+        <div class="medium-6 columns">
+          <h4>{{ question.title }}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-6 large-5 columns">
+          <form method="post" action="{{ path('answer_to_the_question', {'id_question': question.id}) }}">
+            <div class="radio">
+              <label><input type="radio" name="answer" value="1">{{ question.answer1 }}</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="answer" value="2">{{ question.answer2 }}</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="answer" value="3">{{ question.answer3 }}</label>
+            </div>
+            <input type="submit" name="submitanswer" class="btn btn-primary" value="Submit">
+          </form>
+        </div>
+      </div>
+    {% else %}
+      <h4>All questions have been answered! No more questions!</h4>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+      <h4>Congratulations you have completed the game!</h4> 
+      <h5>You have successfully answered correctly {{ correctAnswers }} of all 10 questions which is {{ (correctAnswers / 10) * 100 }}% of all questions</h5>
+      <a href="{{ path('restart') }}" class="btn btn-primary">OK</a>
+
+{% endblock %}

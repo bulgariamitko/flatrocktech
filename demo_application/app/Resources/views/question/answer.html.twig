@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	
+	{% if correct %}
+		<h4>Correct! The right answer is:
+    {% else %}
+    	<h4>Sorry, you are wrong! The right answer is: 
+    {% endif %}
+    		{{ rightAnswer }}</h4>
+	<a href="{{ path('home') }}" class="btn btn-primary">OK</a>
+{% endblock %}
