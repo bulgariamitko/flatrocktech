@@ -10,16 +10,27 @@
       <div class="row">
         <div class="medium-6 large-5 columns">
           <form method="post" action="{{ path('answer_to_the_question', {'id_question': question.id}) }}">
-            <div class="radio">
-              <label><input type="radio" name="answer" value="1">{{ question.answer1 }}</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="answer" value="2">{{ question.answer2 }}</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="answer" value="3">{{ question.answer3 }}</label>
-            </div>
-            <input type="submit" name="submitanswer" class="btn btn-primary" value="Submit">
+            {% if multichoice %}
+              <div class="radio">
+                <label><input type="radio" name="answer" value="1">{{ question.answer1 }}</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="answer" value="2">{{ question.answer2 }}</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="answer" value="3">{{ question.answer3 }}</label>
+              </div>
+              <input type="submit" name="submitanswer" class="btn btn-primary" value="Submit">
+            {% else %}
+              <h5>Answer: {{ ranAnswer }}</h5>
+              <div class="radio">
+                <label><input type="radio" name="answer" value="{{ yes ? question.rightAnswer : fake }}">Yes</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="answer" value="{{ yes != true ? question.rightAnswer : fake }}">No</label>
+              </div>
+              <input type="submit" name="submitanswer" class="btn btn-primary" value="Submit">
+            {% endif %}
           </form>
         </div>
       </div>

@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Setting:setting{% endblock %}
+
+{% block body %}
+	<h4>Choose a setting from the options below:</h4>
+	<form method="post" action="{{ path('changesettings') }}">
+		<div class="radio">
+          <label><input type="radio" name="setting" value="1" {{ setting ? ' checked' : '' }}>Multichoice</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="setting" value="0" {{ setting ? '' : ' checked' }}>Yes or No</label>
+        </div>
+        <input type="submit" name="newsetting" class="btn btn-primary" value="Submit">
+	</form>
+{% endblock %}
