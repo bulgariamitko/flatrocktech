@@ -26,12 +26,12 @@ Regardless of the currently selected mode, if the user clicks on the right answe
 4. Use the app :)
   
 ## More info about the code
-I had 3 days to complete this project. I tried to write the code as simple as possible and using the DRY method of writting code. I think there is no repeating code which is important for me. Everything that have been meanton in the task note have been completed an all the functionality have to be working as the task section description. The code is tested.
+I had 3 days to complete this project. I tried to write the code as simple as possible and using the DRY method of writing code. I think there is no repeating code which is important for me. Everything that have been mentioned in the task note have been completed an all the functionality have to be working as the task section description. The code is tested.
 
 ## More work should be done
-- Regarding the overall look of the pages. There should be more work there so the page looks more as the provided wireframes, but regarding that this is just a demo project and that from the company told me that it should not be 100% accurate regarding the design i can say and because of the short time i have decided to build a solid backend and not focus on the front-end that much.
-- Regarding the dynamic of the website i can also say the above things for this point as well, but i should add that consider the fact that i am using bootstrap v4 it should be relativly easy to fix any bugs regarding the responsive pages.
-- The views are in two different sections in the project. This is because the home views have been created during the installation of the project and the settings views have been created using the terminal when was created the controller using this command `php bin/console generate:controller` with it i have created the controller, the methos and the views.
+- Regarding the overall look of the pages. There should be more work there so the page looks more than the provided wireframes, but regarding that this is just a demo project and that from the company told me that it should not be 100% accurate regarding the design I can say and because of the short time i have decided to build a solid backed and not focus on the front-end that much.
+- Regarding the dynamic of the website I can also say the above things for this point as well, but I should add that consider the fact that I am using bootstrap v4 it should be relatively easy to fix any bugs regarding the responsive pages.
+- The views are in two different sections in the project. This is because the home views have been created during the installation of the project and the settings views have been created using the terminal when was created the controller using this command `php bin/console generate:controller` with it i have created the controller, the methods and the views.
 
 ## Wireframes
 <img src='https://image.ibb.co/gW0xG6/document.png'>
