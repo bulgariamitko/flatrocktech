@@ -6,8 +6,8 @@
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" href="{{ asset('css/foundation.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     </head>
     <body>
 
@@ -16,8 +16,8 @@
       <div class="row">
         <div class="top-bar-left">
           <ul class="dropdown menu" data-dropdown-menu>
-            <li><a href="{{ path('home') }}">Home</a></li>
-            <li><a href="{{ path('settings') }}">Settings</a></li>
+            <li{{ app.request.attributes.get('_route') == 'settings' ? ' class="p-3 mb-2 bg-dark"' : '' }}><a href="{{ path('settings') }}"{{ app.request.attributes.get('_route') == 'settings' ? ' class="text-white"' : '' }}><i class="far fa-window-restore"></i> Settings</a></li>
+            <li{{ app.request.attributes.get('_route') == 'home' ? ' class="p-3 mb-2 bg-dark text-white"' : '' }}><a href="{{ path('home') }}"{{ app.request.attributes.get('_route') == 'home' ? ' class="text-white"' : '' }}><i class="fas fa-align-justify"></i> Home</a></li>
           </ul>
         </div>
       </div>
@@ -36,24 +36,10 @@
       </ul>
     </div>
 
-    <script>
-      $(document).foundation();
-    </script>
-
         {% block javascripts %}{% endblock %}
         <script src="{{ asset('js/vendor/jquery.js') }}"></script>
         <script src="{{ asset('js/vendor/what-input.js') }}"></script>
         <script src="{{ asset('js/vendor/foundation.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ asset('pickadate/lib/picker.js') }}"></script>
-        <script src="{{ asset('pickadate/lib/picker.date.js') }}"></script>
-        <script>
-            $('.datepicker').pickadate(
-              { 
-                format: 'yyyy-mm-dd',
-                formatSubmit: 'yyyy-mm-dd' 
-              }
-              );
-        </script>
     </body>
 </html>

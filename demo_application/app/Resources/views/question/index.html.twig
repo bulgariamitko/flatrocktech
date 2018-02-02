@@ -4,32 +4,42 @@
     {% if question is not empty %}
       <div class="row">
         <div class="medium-6 columns">
-          <h4>{{ question.title }}</h4>
+          <h5 class="text-secondary">What is the answer?</h5>
+          <h5 class="p-3 mb-2 bg-danger text-white rounded">{{ question.title }}</h5>
         </div>
       </div>
       <div class="row">
         <div class="medium-6 large-5 columns">
           <form method="post" action="{{ path('answer_to_the_question', {'id_question': question.id}) }}">
             {% if multichoice %}
-              <div class="radio">
-                <label><input type="radio" name="answer" value="1">{{ question.answer1 }}</label>
+              <div class="radio bg-secondary rounded">
+                <label class="text-white font-weight-bold"><input type="radio" name="answer" value="1">-> {{ question.answer1 }}</label>
               </div>
-              <div class="radio">
-                <label><input type="radio" name="answer" value="2">{{ question.answer2 }}</label>
+              <div class="radio bg-secondary rounded">
+                <label class="text-white font-weight-bold"><input type="radio" name="answer" value="2">-> {{ question.answer2 }}</label>
               </div>
-              <div class="radio">
-                <label><input type="radio" name="answer" value="3">{{ question.answer3 }}</label>
+              <div class="radio bg-secondary rounded">
+                <label class="text-white font-weight-bold"><input type="radio" name="answer" value="3">-> {{ question.answer3 }}</label>
               </div>
-              <input type="submit" name="submitanswer" class="btn btn-primary" value="Submit">
+              <input type="submit" name="submitanswer" class="btn btn-primary" value="Submit" hidden>
             {% else %}
-              <h5>Answer: {{ ranAnswer }}</h5>
-              <div class="radio">
+              <h5 class="text-secondary">{{ ranAnswer }}?</h5>
+              <div class="custom-control custom-radio custom-control-inline bg-success">
+                <input type="radio" id="customRadioInline1" name="answer" class="custom-control-input" value="{{ yes ? question.rightAnswer : fake }}">
+                <label class="custom-control-label text-white" for="customRadioInline1">Yes</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline bg-danger">
+                <input type="radio" id="customRadioInline2" name="answer" class="custom-control-input" value="{{ yes != true ? question.rightAnswer : fake }}">
+                <label class="custom-control-label text-white" for="customRadioInline2">No</label>
+              </div>
+
+              {# <div class="radio">
                 <label><input type="radio" name="answer" value="{{ yes ? question.rightAnswer : fake }}">Yes</label>
               </div>
               <div class="radio">
                 <label><input type="radio" name="answer" value="{{ yes != true ? question.rightAnswer : fake }}">No</label>
-              </div>
-              <input type="submit" name="submitanswer" class="btn btn-primary" value="Submit">
+              </div> #}
+              <input type="submit" name="submitanswer" class="btn btn-primary" value="Submit" hidden>
             {% endif %}
           </form>
         </div>
@@ -37,6 +47,5 @@
     {% else %}
       <h4>All questions have been answered! No more questions!</h4>
     {% endif %}
-
 
 {% endblock %}

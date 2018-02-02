@@ -4378,3 +4378,9 @@ a.thumbnail {
 
 .long-delay {
   animation-delay: 700ms !important; }
+
+input[type="radio"] {
+    left: -999em;
+    position: absolute;
+    padding: 5px;
+}
